@@ -40,7 +40,7 @@ with open(BudgetData1,newline="") as csvfile:
     print (GreatestDecrease)
 
 # Calculate Average revenue, total revenue / number of instances
-    AverageRevenue = round(TotalRevenue / (len(Revenue)),2)
+    AverageRevenue = round(sum(Difference) / (len(Difference)),2)
 
 # To print in required format
     PrintMaterial = "Financial Analysis\n-----------------------\nTotal Months: " + str(len(Date)) + "\nTotal Revenue: $" + str(TotalRevenue) +"\nAverage Revenue Change: " + str(AverageRevenue) + "\nGreatest Increase in Revenue: " + str(Date[x]) + "(" + str(Difference[x]) + ")" + "\nGreatest Decrease in Revenue: " + str(Date[y]) + "(" + str(Difference[y]) + ")"        
