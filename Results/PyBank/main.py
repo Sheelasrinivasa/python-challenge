@@ -3,12 +3,12 @@ import csv
 import operator
 
 # Path to rawdata csv files
-#BudgetData1 = os.path.join("..","PyBank","raw_data","budget_data_1.csv")
-BudgetData2 = os.path.join("..","PyBank","raw_data","budget_data_2.csv")
+BudgetData1 = os.path.join("..","PyBank","raw_data","budget_data_1.csv")
+#BudgetData2 = os.path.join("..","PyBank","raw_data","budget_data_2.csv")
 
 #Open files with csv reader and split columns with defined delimiter
-#with open(BudgetData1,newline="") as csvfile:
-with open(BudgetData2,newline="") as csvfile:
+with open(BudgetData1,newline="") as csvfile:
+#with open(BudgetData2,newline="") as csvfile:
     csvreader = csv.reader(csvfile,delimiter=",")
     next(csvreader)    
 
@@ -22,7 +22,7 @@ with open(BudgetData2,newline="") as csvfile:
     for row in csvreader:
         Date.append (row[0])
         Revenue.append (int(row[1]))
-        Difference.append (previous - Revenue[-1])
+        Difference.append (Revenue[-1]-previous)
         previous = Revenue[-1]
     #print (Difference)
 
@@ -47,7 +47,7 @@ with open(BudgetData2,newline="") as csvfile:
     print(PrintMaterial)
     
 #Create a text file to store data
-    #filename = 'Results1.txt'
-    filename = 'Results2.txt'
+    filename = 'Results1.txt'
+    #filename = 'Results2.txt'
     with open(filename, 'w') as file_object:
         file_object.writelines(PrintMaterial)
